@@ -31,3 +31,4 @@ Teremos ainda como premissa básica a observabilidade do cluster e de todas as s
 ### Quem pode contribuir?
 
 Todos os que estão acompanhando as lives onde nós estamos definindo e criando tudo o que precisamos.
+Os participantes da live que mais participarem e apoiarem com conteúdo, serão adicionados como membro do projeto, pois todo PR precisará de approve antes de ser feito o merge.
