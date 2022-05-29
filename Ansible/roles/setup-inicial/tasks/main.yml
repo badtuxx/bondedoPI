@@ -1,0 +1,3 @@
+---
+# tasks file for setup-inicial
+- include: config-inicial.yml

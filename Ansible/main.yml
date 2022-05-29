@@ -1,0 +1,3 @@
+- hosts: cluster
+  roles:
+  - setup-inicial
