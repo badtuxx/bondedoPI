@@ -1,0 +1,5 @@
+---
+# vars file for install-k8s
+dest_binario_k0s: /usr/local/bin
+usuario_ansible: jeferson
+url_download_k0s: https://github.com/k0sproject/k0s/releases/download/v1.23.6%2Bk0s.2/k0s-v1.23.6+k0s.2-arm64
