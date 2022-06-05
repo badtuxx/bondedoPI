@@ -1,3 +1,5 @@
 - hosts: cluster
+  become: yes
+  become_user: ubuntu
   roles:
   - setup-inicial

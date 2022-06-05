@@ -2,10 +2,10 @@
 localhost ansible_connection=local gather_facts=false
 
 [cluster]
-giroPI-node-01 ansible_ssh_host=192.168.0.111
-giroPI-node-02 ansible_ssh_host=192.168.0.112
-giroPI-node-03 ansible_ssh_host=192.168.0.113
-giroPI-node-04 ansible_ssh_host=192.168.0.114
-giroPI-node-05 ansible_ssh_host=192.168.0.115
-giroPI-node-06 ansible_ssh_host=192.168.0.116
-giroPI-node-07 ansible_ssh_host=192.168.0.117
+giroPI-node-01 ansible_ssh_host=192.168.100.101
+giroPI-node-02 ansible_ssh_host=192.168.100.102
+giroPI-node-03 ansible_ssh_host=192.168.100.103
+giroPI-node-04 ansible_ssh_host=192.168.100.104
+giroPI-node-05 ansible_ssh_host=192.168.100.105
+giroPI-node-06 ansible_ssh_host=192.168.100.106
+giroPI-node-07 ansible_ssh_host=192.168.100.107

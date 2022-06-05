@@ -1,41 +1,39 @@
----
-- hosts: cluster
-  tasks:
-    - name: Configurando o hostname
-      ansible.builtin.hostname:
-        name: {{ inventory_hostname }}
+- name: Configurando o hostname
+  ansible.builtin.hostname:
+    name: "{{ item }}" 
+  with_items: "{{ inventory_hostname }}"
 
-    - name: Atualizando a lista de pacotes contidos nos repos
-      apt:
-        update_cache: yes
+- name: Atualizando a lista de pacotes contidos nos repos
+  apt:
+    update_cache: yes
 
-    - name: Instalando os pacotes basicos
-      apt:
-        pkg:
-        - ntp
-        - htop
-        - vim
-        - apt-transport-https
-        - ca-certificates
-        - curl
-        - net-tools
-        - bash-completion
+- name: Instalando os pacotes basicos
+  apt:
+    pkg:
+    - ntp
+    - htop
+    - vim
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - net-tools
+    - bash-completion
 
-    - name: Criando o usuário principal
-      user:
-        name: jeferson
-        comment: jeferson
-        uid: 1313
-        shell: /bin/bash
-        group: sudo
-        append: yes
+- name: Criando o usuário principal
+  user:
+    name: jeferson
+    comment: jeferson
+    uid: 1313
+    shell: /bin/bash
+    group: sudo
+    append: yes
 
-    - name: Configurando o timezone
-      shell: timedatectl set-timezone Europe/Amsterdam
+- name: Configurando o timezone
+  shell: timedatectl set-timezone Europe/Amsterdam
 
-    - name: Reiniciando o serviço do NTP
-      shell: service ntp restart
+- name: Reiniciando o serviço do NTP
+  shell: service ntp restart
 
-    - name: Atualizando todos os pacotes do SO
-      apt:
-        upgrade: dist
+- name: Atualizando todos os pacotes do SO
+  apt:
+    upgrade: dist
