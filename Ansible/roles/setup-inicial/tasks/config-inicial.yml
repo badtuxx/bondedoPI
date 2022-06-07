@@ -3,11 +3,8 @@
     name: "{{ item }}" 
   with_items: "{{ inventory_hostname }}"
 
-- name: Atualizando a lista de pacotes contidos nos repos
-  apt:
-    update_cache: yes
-
 - name: Instalando os pacotes basicos
+  update_cache: yes
   apt:
     pkg:
     - ntp
