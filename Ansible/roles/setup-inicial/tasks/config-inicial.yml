@@ -1,20 +1,20 @@
 - name: Configurando o hostname
   ansible.builtin.hostname:
-    name: "{{ item }}" 
+    name: "{{ item }}"
   with_items: "{{ inventory_hostname }}"
 
 - name: Instalando os pacotes basicos
   update_cache: yes
   apt:
     pkg:
-    - ntp
-    - htop
-    - vim
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - net-tools
-    - bash-completion
+      - ntp
+      - htop
+      - vim
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - net-tools
+      - bash-completion
 
 - name: Criando o usuário principal
   user:
@@ -30,6 +30,9 @@
 
 - name: Reiniciando o serviço do NTP
   shell: service ntp restart
+
+- name: Aguarda o APT sair do lock
+  shell: while sudo fuser /var/lib/apt/lock >/dev/null 2>&1; do sleep 5; done;
 
 - name: Atualizando todos os pacotes do SO
   apt:
