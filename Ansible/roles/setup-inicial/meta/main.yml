@@ -1,7 +1,8 @@
 galaxy_info:
-  author: your name
-  description: your role description
-  company: your company (optional)
+  author: Chat da Twitch
+  description: Configuração básica de um node raspberry PI
+  company: LINUXtips
+
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -14,9 +15,9 @@ galaxy_info:
   # - GPL-3.0-only
   # - Apache-2.0
   # - CC-BY-4.0
-  license: license (GPL-2.0-or-later, MIT, etc)
+  license: GPL-3.0-only
 
-  min_ansible_version: 2.1
+  min_ansible_version: "3"
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
   # min_ansible_container_version:
@@ -27,10 +28,10 @@ galaxy_info:
   # To view available platforms and versions (or releases), visit:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
-  # platforms:
-  # - name: Fedora
-  #   versions:
-  #   - all
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
   #   - 25
   # - name: SomePlatform
   #   versions:
