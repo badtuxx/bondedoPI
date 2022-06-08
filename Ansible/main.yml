@@ -1,0 +1,4 @@
+- hosts: cluster
+  become: true
+  roles:
+    - setup_inicial

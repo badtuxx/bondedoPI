@@ -1,0 +1,13 @@
+- name: Instalando o containerD
+  apt:
+    name: containerd
+    update_cache: yes
+
+- name: Download do binario do k0s
+  get_url:
+    url: "{{ url_download_k0s }}"
+    dest: "{{ dest_binario_k0s }}"
+    owner: "{{ usuario_ansible }}"
+    group: "{{ usuario_ansible }}"
+    mode: 0755
+

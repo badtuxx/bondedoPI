@@ -1,0 +1,11 @@
+[local]
+localhost ansible_connection=local gather_facts=false
+
+[cluster]
+giroPI-node-01 ansible_ssh_host=192.168.100.101 ansible_user=ubuntu ansible_become=true
+giroPI-node-02 ansible_ssh_host=192.168.100.102 ansible_user=ubuntu ansible_become=true
+giroPI-node-03 ansible_ssh_host=192.168.100.103 ansible_user=ubuntu ansible_become=true
+giroPI-node-04 ansible_ssh_host=192.168.100.104 ansible_user=ubuntu ansible_become=true
+giroPI-node-05 ansible_ssh_host=192.168.100.105 ansible_user=ubuntu ansible_become=true
+giroPI-node-06 ansible_ssh_host=192.168.100.106 ansible_user=ubuntu ansible_become=true
+giroPI-node-07 ansible_ssh_host=192.168.100.107 ansible_user=ubuntu ansible_become=true

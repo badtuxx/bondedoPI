@@ -1,0 +1,52 @@
+- name: Configurando o hostname
+  ansible.builtin.hostname:
+    name: "{{ item }}"
+  with_items: "{{ inventory_hostname }}"
+
+- name: Instalando os pacotes basicos
+  ansible.builtin.apt:
+    pkg:
+      - ntp
+      - htop
+      - vim
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - net-tools
+      - bash-completion
+    update_cache: true
+
+- name: Criando o grupo de admins
+  ansible.builtin.group:
+    name: giropops
+    gid: 1313
+    state: present
+
+- name: Criando o usuário principal
+  ansible.builtin.user:
+    name: jeferson
+    comment: Jeferson Fernando
+    uid: 1313
+    gid: 1313
+    shell: /bin/bash
+    group: sudo
+    append: true
+
+- name: Transferindo a chave pub do user
+  ansible.builtin.authorized_key:
+    user: jeferson
+    state: present
+    key: "{{ lookup('file', 'files/id_rsa.pub') }}"
+
+- name: Configurando o timezone
+  community.general.timezone:
+    name: Europe/Amsterdam
+
+- name: Reiniciando o serviço do NTP
+  ansible.builtin.service:
+    name: ntp
+    state: restarted
+
+- name: Atualizando todos os pacotes do SO
+  ansible.builtin.apt:
+    upgrade: dist
