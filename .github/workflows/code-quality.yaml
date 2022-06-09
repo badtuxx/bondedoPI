@@ -17,6 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Roda ansible-playbook --list-tasks para simples conferência
+        uses: arillso/action.playbook@master
+        with:
+          list_tasks: "Ansible/main.yml"
+
+      - name: Roda ansible-playbook --syntax-check
+        uses: arillso/action.playbook@master
+        with:
+          syntax_check: "Ansible/main.yml"
+
       - name: Roda ansible-lint
         uses: ansible-community/ansible-lint-action@main
         with:
