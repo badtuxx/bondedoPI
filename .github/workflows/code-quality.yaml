@@ -1,0 +1,23 @@
+name: Code quality
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Roda ansible-lint
+        uses: ansible-community/ansible-lint-action@main
+        with:
+          path: "Ansible/"
