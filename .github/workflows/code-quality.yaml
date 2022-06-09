@@ -1,0 +1,39 @@
+name: Code quality
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  code-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Roda ansible-playbook --list-tasks para simples conferência
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          directory: "Ansible/"
+          playbook: "main.yml"
+          options: |
+            --list-tasks
+
+      - name: Roda ansible-playbook --syntax-check
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          directory: "Ansible/"
+          playbook: "main.yml"
+          options: |
+            --syntax-check
+
+      - name: Roda ansible-lint
+        uses: ansible-community/ansible-lint-action@main
+        with:
+          path: "Ansible/"
