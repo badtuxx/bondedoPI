@@ -21,12 +21,16 @@ jobs:
         uses: arillso/action.playbook@master
         with:
           list_tasks: true
+          inventory: "Ansible/hosts"
+          module_path: ""
           playbook: "Ansible/main.yml"
 
       - name: Roda ansible-playbook --syntax-check
         uses: arillso/action.playbook@master
         with:
           syntax_check: true
+          inventory: "Ansible/hosts"
+          module_path: ""
           playbook: "Ansible/main.yml"
 
       - name: Roda ansible-lint
